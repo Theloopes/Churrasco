@@ -7,20 +7,27 @@ double alcool = Convert.ToInt32(Console.ReadLine()!);
 Console.WriteLine("Quantas crianças vão comparecer?");
 double criancas = Convert.ToInt32(Console.ReadLine()!);
 
-double carne = adultos * 400 + criancas * 200;
-double acomp = adultos * 200 + criancas * 200;
-double cerveja = adultos * 2000;
-double refrigerante = adultos * 500 + criancas * 500;
-double agua = adultos * 400 + criancas * 400;
+double carne = ((adultos * 400) + criancas * 200) / 1000;
+double acomp = ((adultos * 200) + criancas * 200) / 1000;
+alcool = (adultos * 2000) / 1000;
+double naoalcool;
+if (adultos < alcool){
+    naoalcool = alcool - adultos;
+}
+else{
+    naoalcool = adultos - alcool;
+}
+double refrigerante = ((naoalcool * 500) + criancas * 500) / 1000;
+double agua = ((adultos * 400) + criancas * 400)/ 1000;
 
 Console.WriteLine("--- Churrasco ---");
 Console.WriteLine("");
 Console.WriteLine($"Adultos (que consomem bebidas alcoólicas).......: {adultos}");
-Console.WriteLine($"Adultos (que não consomem bebidas alcoólicas)...: {alcool}");
+Console.WriteLine($"Adultos (que não consomem bebidas alcoólicas)...: {naoalcool}");
 Console.WriteLine($"Crianças........................................: {criancas}");
 Console.WriteLine("");
 Console.WriteLine($"Carne.............: {carne}Kg");
 Console.WriteLine($"Acompanhamentos...: {acomp}Kg");
-Console.WriteLine($"Cerveja...........: {cerveja}L");
+Console.WriteLine($"Cerveja...........: {alcool}L");
 Console.WriteLine($"Refrigerante......: {refrigerante}L");
 Console.WriteLine($"Água..............: {agua}L");
